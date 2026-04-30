@@ -34,3 +34,22 @@ Complete **after** the site is deployed and **before** submitting or re-submitti
 
 - [ ] Open the site in an incognito window and click every header/footer link.
 - [ ] Save a screenshot of the footer and legal pages for your records.
+
+---
+
+## Verification notes (code + prod)
+
+**Aligned with code / `DATA_CONTRACT` (review 2026-04-30):**
+
+- **HTTPS / domain:** confirm in browser and `curl -sI https://orderflowpvl.website` (you had **200 OK** on VPS).
+- **IE ABISHEV on home:** header logo uses `BUSINESS_INFO.name`; Contact block repeats legal name, **IIN 830520350723**, `address.formatted` (Estaya, **81/1**, apt 19, Pavlodar, 140000).
+- **Footer:** Privacy + Terms links; **mailto** `info@orderflowpvl.website`, **tel** `+77011000570` from `business.ts`.
+- **Legal routes:** `/legal/privacy`, `/legal/terms` have metadata and IIN/address in copy (see `app/legal/*`).
+- **Map:** iframe uses lat/lng for Estaya area (`mapEmbed` in `lib/config/business.ts`).
+- **Placeholders:** no `lorem` / obvious TODO in TSX.
+
+**Only you can confirm (not in repo):**
+
+- [ ] Inbox **info@orderflowpvl.website** (receive + send test).
+- [ ] PDFs (IE notification, ForteBank) match site and Meta fields **word-for-word** where required.
+- [ ] Meta Business form: URL exactly **https://orderflowpvl.website**, address/phone match `DATA_CONTRACT.md`.
