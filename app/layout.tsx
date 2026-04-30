@@ -13,11 +13,21 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteDescription =
+  "Professional automotive maintenance and computer diagnostics in Pavlodar, Kazakhstan. OKED 45201.";
+
 export const metadata: Metadata = {
   title: "IE ABISHEV | Automotive systems",
-  description:
-    "Professional automotive maintenance and computer diagnostics in Pavlodar, Kazakhstan. OKED 45201.",
+  description: siteDescription,
   metadataBase: new URL(BUSINESS_INFO.contact.website),
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: BUSINESS_INFO.name,
+    title: "IE ABISHEV | Automotive systems",
+    description: siteDescription,
+  },
   verification: {
     other: {
       "facebook-domain-verification": "juk7p2bfj0a2kmw0lzdxytyll2838p",
