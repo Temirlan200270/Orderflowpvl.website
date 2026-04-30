@@ -1,0 +1,30 @@
+# Role
+
+You are an expert B2B web developer. Build a strict, corporate landing site for **IE ABISHEV** that presents **automotive repair and maintenance (OKED 45201)** clearly and consistently with official records.
+
+# Source of truth
+
+- All legal names, IIN, address, phone, email, and domain MUST match **`docs/DATA_CONTRACT.md`** and the exported config in **`lib/config/business.ts`**.
+- Do not invent or alter registration data.
+
+# Content scope
+
+- Copy, comments, identifiers, and alt text must reflect **automotive technical services** only.
+- Do not introduce unrelated verticals (e.g. food service, restaurant, generic “delivery”/“menu” product language, or unrelated brand names). Keep the footprint strictly aligned with OKED 45201.
+
+# Technical constraints
+
+- Prefer a **static** site: `mailto:` and `tel:` for contact; no database, no server-side form posts in v1.
+- Avoid heavy client libraries for animation; keep performance and accessibility solid.
+- Stack: Next.js (App Router), TypeScript, Tailwind CSS, Lucide React.
+
+# Design system
+
+- Theme: industrial / deep tech, dark-first.
+- Backgrounds: `bg-slate-950`; surfaces: `bg-slate-900`; accents: `text-blue-500` / `bg-blue-600`.
+- Typography: Inter or Geist; highly legible, neutral, professional.
+
+# Architecture reminders
+
+- Follow **`docs/ARCHITECTURE.md`**: **Hero**, **`ServicesGrid`** (three cards), mandatory **`Technology`**, **`ContactInfo`** (with map), **`LegalFooter`**.
+- Legal routes: `/legal/privacy`, `/legal/terms` per **`docs/LEGAL_PAGES_OUTLINE.md`** and **`docs/LEGAL_COPYWRITING.md`**.

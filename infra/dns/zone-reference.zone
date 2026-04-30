@@ -1,0 +1,15 @@
+;; Reference — same shape as Hetzner export; domain = orderflowpvl.website
+;; Replace serial (2026042402) with your console value when merging edits.
+$ORIGIN	orderflowpvl.website.
+$TTL	3600
+
+@	IN	SOA	hydrogen.ns.hetzner.com. dns.hetzner.com. 2026042402 86400 10800 3600000 3600
+
+; NS records
+@	IN	NS	helium.ns.hetzner.de.
+@	IN	NS	hydrogen.ns.hetzner.com.
+@	IN	NS	oxygen.ns.hetzner.com.
+
+; A records
+orderflowpvl.website	300	IN	A	178.104.163.216
+www			300	IN	A	178.104.163.216
