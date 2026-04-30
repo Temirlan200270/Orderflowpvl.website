@@ -8,7 +8,8 @@ Corporate landing for **IE ABISHEV** (automotive repair and maintenance, **OKED 
 - [infra/dns/zone-reference.zone](infra/dns/zone-reference.zone) — zone snapshot  
 - [infra/ssh/](infra/ssh/) — Windows SSH setup scripts (keys in `infra/ssh/secrets/`, gitignored)  
 - [infra/deploy/deploy-vps.bat](infra/deploy/deploy-vps.bat) — manual deploy from Windows (`deploy-vps.ps1` + [infra/deploy/remote-deploy.sh](infra/deploy/remote-deploy.sh))  
-- [.github/workflows/deploy-vps.yml](.github/workflows/deploy-vps.yml) — **auto deploy on push to `main`** (requires GitHub Secrets `VPS_HOST`, `VPS_USER`, `VPS_SSH_PRIVATE_KEY`; VPS must have repo cloned + PM2)
+- [.github/workflows/deploy-vps.yml](.github/workflows/deploy-vps.yml) — **auto deploy on push to `main`** (requires GitHub Secrets `VPS_HOST`, `VPS_USER`, `VPS_SSH_PRIVATE_KEY`; VPS must have repo cloned + PM2)  
+- [infra/nginx/](infra/nginx/) — **nginx reverse proxy + Certbot** for `orderflowpvl.website` → `127.0.0.1:3000` ([README](infra/nginx/README.md))
 
 ## Cursor: Talk to Figma MCP
 
