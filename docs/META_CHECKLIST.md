@@ -26,7 +26,8 @@ Complete **after** the site is deployed and **before** submitting or re-submitti
 ## Meta form consistency
 
 - [ ] Legal name / business name matches documents and site.
-- [ ] Address lines, city, postal code, country match `DATA_CONTRACT.md` and your proofs.
+- [ ] **Map vs registry:** Meta often uses Google-style address lookup. If the picker only offers **house 81** (no **81/1**), choose the closest validated point (Estaya / Естай, Pavlodar), put **кв. 19** in the second line, and add **`д. 81/1`** (or `81/1`) in **Address line 2** together with the apartment if the field allows free text — e.g. `д. 81/1, кв. 19`. Official PDFs still show **81/1**; that is what reviewers check when documents are uploaded.
+- [ ] Address lines, city, postal code, country match `DATA_CONTRACT.md` and your proofs **as closely as the form allows** (see previous item).
 - [ ] Phone format matches what you use on the site.
 - [ ] Website URL exactly **https://orderflowpvl.website** (no typos, correct protocol).
 

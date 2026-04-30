@@ -63,6 +63,8 @@ Align typed form fields with this table; typos here cause rejections.
 | Phone | +77011000570 (or formatted per form) |
 | Website | https://orderflowpvl.website |
 
+**Lookup limitation (Meta / Google):** Some forms only validate **house 81** on the map, not **81/1**. The legal and site **canonical** building remains **81/1**. In Meta, use the validated street + **81**, then put **`д. 81/1, кв. 19`** (or split **кв. 19** vs **81/1** across lines per the form) so the full registry address appears in the submitted text. Uploaded PDFs must still show **81/1**.
+
 ## 5. TypeScript contract (`lib/config/business.ts`)
 
 Implement a single exported constant, e.g. `BUSINESS_INFO`, matching this shape. **Values must equal the tables above** (no extra fields with alternate addresses).
