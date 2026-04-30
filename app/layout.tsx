@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   description:
     "Professional automotive maintenance and computer diagnostics in Pavlodar, Kazakhstan. OKED 45201.",
   metadataBase: new URL(BUSINESS_INFO.contact.website),
+  verification: {
+    other: {
+      "facebook-domain-verification": "juk7p2bfj0a2kmw0lzdxytyll2838p",
+    },
+  },
 };
 
 export default function RootLayout({
