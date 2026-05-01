@@ -6,7 +6,7 @@ This document is the **single source of truth** for all legal, contact, and addr
 
 | Field | Value |
 |--------|--------|
-| Company name (EN, site/Meta) | IE ABISHEV |
+| Public brand / site name (EN) | IE ABISHEV |
 | Owner full name (EN) | ABISHEV BAKHTIYAR SANSYZBAEVICH |
 | Tax ID (IIN) | 830520350723 |
 | Activity code | OKED 45201 — Automotive repair and maintenance |
@@ -50,20 +50,46 @@ Includes IIN, city, street/building/apt, and domain — wording fixed there to a
 
 ## 4. Meta Business Manager field mapping (reference)
 
-Align typed form fields with this table; typos here cause rejections.
+Align typed form fields with **the same PDFs you upload** (IE notification + bank statement). Mixed languages or an extra “house **81**” from map autocomplete (e.g. **Естай көшесі 81** + **д. 81/1**) do **not** match either document and trigger “address / name mismatch” even when the real address is correct.
+
+### 4.1 Supporting documents (canonical wording from files)
+
+| Source | Registered name | Address (as printed) | Phone on document |
+|--------|-----------------|----------------------|-------------------|
+| **Уведомление ИП** № KZ32UWQ07387134 | **ИП АБИШЕВ** (п. 3) | **г. Павлодар, ул. Естая, д. 81/1, кв. (офис) 19** (п. 5) | **7011000570** (п. 6; без +7) |
+| **Выписка ForteBank** (ИИК KZ4396507F0008823689) | **ИП АБИШЕВ** (клиент) | **140000, КАЗАХСТАН, ПАВЛОДАРСКАЯ обл, ПАВЛОДАР г, ЕСТАЯ ул, дом 81/1, кв 19** | *не указан* — подтвердить телефон по этому файлу нельзя |
+
+ФИО заявителя в уведомлении (п. 2): **АБИШЕВ БАХТИЯР САНСЫЗБАЕВИЧ** — это не поле «наименование ИП»; для поля юр. названия в Meta ориентир — **ИП АБИШЕВ**, как в п. 3 и в банке.
+
+### 4.2 What to type in Meta (copy-paste discipline)
+
+**Legal / registered business name:** `ИП АБИШЕВ` (как в п. 3 уведомления и шапке выписки).
+
+**Address — предпочтительно как в уведомлении (ручной ввод, без казахского «көшесі … 81»):**
+
+- Одной строкой: `г. Павлодар, ул. Естая, д. 81/1, кв. 19`
+- Либо в стиле выписки: `140000, Павлодар, ул. Естая, д. 81/1, кв. 19` + область/страна по полям формы.
+
+**Нельзя** смешивать подсказку карты **«Естай көшесі 81»** с **д. 81/1** — в документах нет отдельного номера дома **81** у улицы; есть **ул. Естая** и **д. 81/1**.
+
+**Phone:** в форме — **+77011000570** (эквивалент **7011000570** из уведомления). Раз выписка **не содержит** телефон, Meta часто не засчитывает телефон по одной выписке → варианты: **подтверждение по email** (как предлагает письмо) и/или загрузка **уведомления ИП**, где телефон указан рядом с **ИП АБИШЕВ** и адресом.
+
+**Display / brand (если поле отдельно):** IE ABISHEV — на сайте без изменений.
 
 | Meta / form concept | Suggested value |
 |---------------------|-----------------|
-| Legal / business name | IE ABISHEV (or full IE name if the form requires it — match your documents) |
-| Address line 1 | Estaya St., 81/1 (or platform-specific split) |
-| Address line 2 | Apt/Office 19 |
-| City | Pavlodar |
+| Legal / company name | `ИП АБИШЕВ` |
+| Address (notification-style) | `г. Павлодар, ул. Естая, д. 81/1, кв. 19` (+ индекс **140000** / область по макету формы) |
+| Address (bank-style fallback) | `ЕСТАЯ ул., дом 81/1, кв. 19`, `Павлодар`, `140000`, Kazakhstan |
+| City | Pavlodar / Павлодар |
 | Postal code | 140000 |
 | Country | Kazakhstan |
-| Phone | +77011000570 (or formatted per form) |
+| Phone | +77011000570 (как на сайте); в уведомлении без кода: **7011000570**. Предпочтительно **верификация по email**, если телефон не принимают |
 | Website | https://orderflowpvl.website |
 
-**Lookup limitation (Meta / Google):** Some forms only validate **house 81** on the map, not **81/1**. The legal and site **canonical** building remains **81/1**. In Meta, use the validated street + **81**, then put **`д. 81/1, кв. 19`** (or split **кв. 19** vs **81/1** across lines per the form) so the full registry address appears in the submitted text. Uploaded PDFs must still show **81/1**.
+**Lookup limitation (Meta / Google):** Если карта даёт только **дом 81**, выберите ближайшую точку и **в свободных полях** оставьте текст как в документе (**ул. Естая, д. 81/1, кв. 19**).
+
+Подавайте **одним набором** полей без дробления: имя и адрес должны быть **один в один** с тем PDF, который вы прикладываете первым (лучше **уведомление ИП** — там и название, и адрес, и телефон на одном листе).
 
 ## 5. TypeScript contract (`lib/config/business.ts`)
 

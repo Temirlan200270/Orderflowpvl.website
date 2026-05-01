@@ -25,8 +25,12 @@ Complete **after** the site is deployed and **before** submitting or re-submitti
 
 ## Meta form consistency
 
-- [ ] Legal name / business name matches documents and site.
-- [ ] **Map vs registry:** Meta often uses Google-style address lookup. If the picker only offers **house 81** (no **81/1**), choose the closest validated point (Estaya / Естай, Pavlodar), put **кв. 19** in the second line, and add **`д. 81/1`** (or `81/1`) in **Address line 2** together with the apartment if the field allows free text — e.g. `д. 81/1, кв. 19`. Official PDFs still show **81/1**; that is what reviewers check when documents are uploaded.
+- [ ] **Legal name:** **`ИП АБИШЕВ`** — как в **п. 3** уведомления ИП и в шапке выписки ForteBank (не подменять на латинское ФИО: ФИО в п. 2 — заявитель, не наименование ИП).
+- [ ] **Display / Page name:** **IE ABISHEV** — где Meta отделяет бренд от юр. названия.
+- [ ] **Address:** вручную, как в **п. 5** уведомления: **`г. Павлодар, ул. Естая, д. 81/1, кв. 19`** (индекс **140000** по полям формы). **Не** использовать связку подсказки карты **«Естай көшесі 81»** + **д. 81/1** — в документах улица **Естая**, дом **81/1**, без отдельного «дома 81» улицы.
+- [ ] **Документы:** загружать **уведомление ИП** (название + адрес + телефон **7011000570** на одном документе) и при необходимости выписку; выписка **без телефона** — не докажет номер для Meta.
+- [ ] Если доступно: **верификация по email** вместо телефона (в письме Meta это явно допускается).
+- [ ] **Map vs registry:** если карта даёт только **81**, выбрать ближайшую точку и в тексте адреса сохранить **ул. Естая, д. 81/1, кв. 19**.
 - [ ] Address lines, city, postal code, country match `DATA_CONTRACT.md` and your proofs **as closely as the form allows** (see previous item).
 - [ ] Phone format matches what you use on the site.
 - [ ] Website URL exactly **https://orderflowpvl.website** (no typos, correct protocol).
