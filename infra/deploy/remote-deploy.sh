@@ -7,11 +7,21 @@ REMOTE_DIR="${DEPLOY_REMOTE_DIR:-/home/deploy/ie-abishev-landing}"
 BRANCH="${DEPLOY_BRANCH:-main}"
 PM2_NAME="${DEPLOY_PM2_NAME:-ie-abishev-landing}"
 
+LOCK_FILE="/tmp/${PM2_NAME}-deploy.lock"
+exec 200>"$LOCK_FILE"
+if ! flock -w 300 200; then
+  echo "Another deploy is already running (lock: $LOCK_FILE)." >&2
+  exit 1
+fi
+
 cd "$REMOTE_DIR"
 git fetch origin
 git checkout "$BRANCH"
 git pull origin "$BRANCH"
-npm ci
+
+# VPS/CI often sets NODE_ENV=production; build needs devDependencies (tailwind, typescript, eslint).
+unset NODE_ENV
+npm ci --include=dev
 npm run build
 if command -v pm2 >/dev/null 2>&1; then
   if pm2 describe "$PM2_NAME" >/dev/null 2>&1; then

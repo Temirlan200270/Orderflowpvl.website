@@ -41,5 +41,5 @@ jobs:
           chmod 600 ~/.ssh/vps_deploy
           ssh-keyscan -T 10 -H "$VPS_HOST" >> ~/.ssh/known_hosts 2>/dev/null || true
           ssh -i ~/.ssh/vps_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new \
-            "${VPS_USER}@${VPS_HOST}" bash -s < infra/deploy/remote-deploy.sh
+            "${VPS_USER}@${VPS_HOST}" "cd /home/deploy/ie-abishev-landing && git fetch origin && git checkout main && git pull origin main && bash infra/deploy/remote-deploy.sh"
           rm -f ~/.ssh/vps_deploy

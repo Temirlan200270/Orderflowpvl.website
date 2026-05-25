@@ -46,16 +46,17 @@ if (-not (Test-Path $remoteScript)) {
     Write-Host "[deploy] Missing $remoteScript" -ForegroundColor Red
     exit 1
 }
-$bashBody = Get-Content -Path $remoteScript -Raw -Encoding UTF8
-# Prefix exports so remote-deploy.sh picks up non-default paths/branches (avoid single quotes in paths).
-$bash = @"
+$remoteCmd = @"
 export DEPLOY_REMOTE_DIR='$RemoteDir'
 export DEPLOY_BRANCH='$Branch'
 export DEPLOY_PM2_NAME='$Pm2AppName'
-
-$bashBody
+cd '$RemoteDir'
+git fetch origin
+git checkout '$Branch'
+git pull origin '$Branch'
+bash infra/deploy/remote-deploy.sh
 "@
-$bash | & ssh $SshTarget "bash -s"
+$remoteCmd | & ssh $SshTarget "bash -s"
 $sshExit = $LASTEXITCODE
 if ($sshExit -ne 0) {
     Write-Host "[deploy] Remote step failed (exit $sshExit)." -ForegroundColor Red
