@@ -1,22 +1,25 @@
 export const SITE_COPY = {
   header: {
+    tagline: "Автосервис в Павлодаре",
     nav: {
       contact: "Контакты",
+      legal: "Юридическая информация",
     },
   },
-  hero: {
-    h1: "ИП АБИШЕВ",
-    subtitle: "Автосервис в Павлодаре. Диагностика и обслуживание автомобилей.",
-    cta: "Связаться",
+  about: {
+    heading: "О нас",
+    body: "Диагностика и техническое обслуживание автомобилей.",
   },
   contact: {
     heading: "Контакты",
+    phoneLabel: "Телефон",
+    emailLabel: "Email",
+  },
+  legal: {
+    heading: "Юридическая информация",
     nameLabel: "Наименование",
     iinLabel: "ИИН",
     addressLabel: "Адрес",
-    phoneLabel: "Телефон",
-    emailLabel: "Email",
-    mapCaption: "Павлодар, ул. Естая, д. 81/1",
   },
   footer: {
     copyright: "© 2025–2026 ИП АБИШЕВ",
