@@ -5,7 +5,7 @@ import { BUSINESS_INFO } from "@/lib/config/business";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
 });
 
 const geistMono = Geist_Mono({
@@ -14,18 +14,18 @@ const geistMono = Geist_Mono({
 });
 
 const siteDescription =
-  "Professional automotive maintenance and computer diagnostics in Pavlodar, Kazakhstan. OKED 45201.";
+  "Автосервис в Павлодаре. Диагностика и обслуживание автомобилей.";
 
 export const metadata: Metadata = {
-  title: "IE ABISHEV | Automotive systems",
+  title: "ИП АБИШЕВ | Автосервис в Павлодаре",
   description: siteDescription,
   metadataBase: new URL(BUSINESS_INFO.contact.website),
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "ru_KZ",
     url: "/",
     siteName: BUSINESS_INFO.name,
-    title: "IE ABISHEV | Automotive systems",
+    title: "ИП АБИШЕВ | Автосервис в Павлодаре",
     description: siteDescription,
   },
   verification: {
@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="ru" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );
