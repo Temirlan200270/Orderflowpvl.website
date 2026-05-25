@@ -3,8 +3,8 @@ import { SITE_COPY } from "@/lib/siteCopy";
 
 export function LegalFooter() {
   return (
-    <footer className="border-t border-slate-800 bg-slate-950 px-4 py-8 text-sm text-slate-500 sm:px-6">
-      <div className="mx-auto flex max-w-3xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <footer className="border-t border-slate-800 bg-slate-950/80 px-4 py-10 sm:px-6">
+      <div className="mx-auto flex max-w-5xl flex-col gap-4 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
         <p>{SITE_COPY.footer.copyright}</p>
         <p className="flex flex-wrap gap-x-4 gap-y-1">
           <Link
